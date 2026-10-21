@@ -10,8 +10,8 @@ import static View.Inicio_GUI.nome2_txt;
 import static View.Inicio_GUI.nome_txt;
 import static View.Inicio_GUI.tel2_txt;
 import static View.Inicio_GUI.tel_txt;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +27,7 @@ public class Funcoes_DAO {
 public static String em;
 public static long tel;
        
- public static String url = "jdbc:mysql://localhost:3307/aprender"; // enderço do BD
+ public static String url = "jdbc:mysql://localhost:3306/aprender"; // enderço do BD
   public static String username = "root";        //nome de um usuário de seu BD
   public static String password = "";  // senha do BD
 
@@ -95,7 +95,7 @@ public static long tel;
         //--> Início
         try{     //Iniciando o possivel tratamento de erros
             //Declarando a variavel código
-            int codigo = Integer.valueOf(cod2_txt.getText());
+            int codigo = Integer.parseInt(cod2_txt.getText());
             Model.Conecta_DB.carregaDriver(); // Carregando o driver
             try {// Tratamento de erro para a conexao
                 // Declarando  a variavel de conexão con
